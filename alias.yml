@@ -1,0 +1,17 @@
+- name: Create playbook to install web server
+  hosts: web
+  tasks:
+    - name: Install httpd server
+      package:
+        name: httpd
+        state: latest
+    - name: Context of web server
+      copy: 
+        content: "Welcome here {{ ansible_facts['hostname'] }} "
+        dest: /var/www/html/index.html
+      notify: restart webserver
+  handlers:
+    - name: restart webserver
+      service:
+        name: httpd
+        state: restarted
