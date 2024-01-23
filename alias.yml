@@ -2,7 +2,7 @@
   hosts: web
   become: true
   tasks:
-    - name: Install httpd server
+    - name: Install httpd server NEW
       package:
         name: httpd
         state: latest
