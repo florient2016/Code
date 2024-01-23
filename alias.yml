@@ -1,5 +1,6 @@
 - name: Create playbook to install web server
   hosts: web
+  become: true
   tasks:
     - name: Install httpd server
       package:
